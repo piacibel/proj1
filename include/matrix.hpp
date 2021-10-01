@@ -20,8 +20,6 @@ private:
     //Matrix
     std::vector<std::vector<char>> map;
 
-    void update_map(char);
-
 public:
     //ctor
     Matrix(void);
@@ -38,6 +36,7 @@ public:
     coord _getCursor() const;
 
     // Drawing basic things
+    void update_map(char);
     void drawVertLine(int, char);
     void drawHoriLine(int, char);
     void drawRectangle(unsigned int, unsigned int);

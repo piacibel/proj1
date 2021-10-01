@@ -68,3 +68,14 @@ void TermView::displayScene(std::vector<std::vector<char>>& map){
     }
     refresh();
 }
+
+bool TermView::get_keyhit(){
+    int ch = getch();
+
+    if (ch != ERR) {
+        ungetch(ch);
+        return true;
+    } else {
+        return false;
+    }
+}

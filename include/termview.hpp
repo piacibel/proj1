@@ -21,8 +21,6 @@ class TermView{
     const unsigned int MAXLINES;
     const unsigned int MAXCOLS;
 
-
-
 public:
     TermView(unsigned int, unsigned int);
     ~TermView(void);
@@ -36,5 +34,8 @@ public:
     int getMaxCols() const;
 
     void displayScene(std::vector<std::vector<char>>&);
+
+    // static get_keyhit()
+    static bool get_keyhit();
 
 };

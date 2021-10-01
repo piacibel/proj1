@@ -1,13 +1,14 @@
 #pragma once
 #include <iostream>
-#include "termview.hpp"
-
+#include "eventloop.hpp"
+#include "matrix.hpp"
 
 
 class Snake{
 private:
-
+    Matrix* matrix;
 public:
-
-
+    Snake();
+    ~Snake();
+    void Run();
 };
