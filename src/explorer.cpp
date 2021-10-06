@@ -3,7 +3,9 @@
 
 Explorer::Explorer(){
     this->matrix = new Matrix();
-    this->events = new EventLoop<Explorer>(1.);
+    this->events = new EventLoop<Explorer>(1.,
+                                           &Explorer::idleAction,
+                                           &Explorer::inputAction);
 }
 
 Explorer::~Explorer(){
@@ -11,10 +13,12 @@ Explorer::~Explorer(){
 }
 
 void Explorer::Run(){
-
+    this->events->orchestrate(*this);
 }
 
-void Explorer::idleAction(){}
+void Explorer::idleAction(){
+    matrix->displayScene();
+}
 
 void Explorer::inputAction(char c){
     switch(c){
@@ -31,4 +35,5 @@ void Explorer::inputAction(char c){
         matrix->update_map(' ');
         matrix->_shiftCursor(0,1);
     }
+    matrix->displayScene();
 }

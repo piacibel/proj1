@@ -12,16 +12,16 @@ template<class Game>
 class EventLoop{
 private:
     std::chrono::duration<double, std::milli> timestep;
+    std::function<void(Game&)>& idleAction;
+    std::function<void(Game&, char)>& inputAction;
+
 public:
     //ctor
-    EventLoop(double timestep) : timestep(timestep){}
+    EventLoop(double timestep, std::function<void(Game&)>, std::function<void(Game&,char)>) : timestep(timestep), idleAction(idleAction), inputAction(inputAction){}
     //dtor
     ~EventLoop(){}
 
-    void orchestrate(Game& game,
-                     std::function<void(Game&)>& idleAction,
-                     std::function<void(Game&, char)>& inputAction){
-
+    void orchestrate(Game& game){
         auto startTime = std::chrono::system_clock::now();
 
         while(true){
@@ -36,7 +36,7 @@ public:
 
             //Run other code here while not updating.
             char key = ' ';
-            if(TermView::get_keyhit()){
+            if(TermView::is_keyhitten()){
                 key = getch();
             }
             if( key == 'X' ) //Exit common for everything, to be determined ?

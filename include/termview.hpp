@@ -36,6 +36,6 @@ public:
     void displayScene(std::vector<std::vector<char>>&);
 
     // static get_keyhit()
-    static bool get_keyhit();
+    static bool is_keyhitten();
 
 };

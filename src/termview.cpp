@@ -69,7 +69,7 @@ void TermView::displayScene(std::vector<std::vector<char>>& map){
     refresh();
 }
 
-bool TermView::get_keyhit(){
+bool TermView::is_keyhitten(){
     int ch = getch();
 
     if (ch != ERR) {

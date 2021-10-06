@@ -1,11 +1,8 @@
 #include "matrix.hpp"
-#include "snake.hpp"
+#include "explorer.hpp"
 
 int main(int argc, char** argv){
-    Matrix matrix=Matrix();
-    matrix.drawBorder();
-    //matrix.displayTextScene();
-    matrix.displayScene();
-    getch();
+    Explorer expl{};
+
     return 0;
 }
